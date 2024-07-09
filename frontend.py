@@ -13,7 +13,7 @@ def on_button_click(original_question):
     response = requests.post(BACKEND_URL_ADD, json={"query":original_question})  
     #st.write(response.json())
     if response.status_code == 200: 
-        #result = response.json() 
+       
         # 拆分消息，并只对original_question部分应用颜色  
         message_part1 = "问题"  
         message_part2 = f'已成功添加至数据库，随后我们将邀请专家前来解答！'  
