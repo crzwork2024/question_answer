@@ -8,8 +8,10 @@ from config import *
 # 加载预训练的文本嵌入模型  
 embeddings = ModelScopeEmbeddings(model_id=model_id)  
 
+# 加载CSV数据
 Questions_list, Answers_list = load_data()     
 
+# 删除向量数据库中的数据
 delete_db(persist_directory, collection_name)
   
 # 存储数据到向量数据库  

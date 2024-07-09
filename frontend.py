@@ -1,14 +1,12 @@
 import streamlit as st  
 import requests  
+from config import *
   
 # 初始化 session_state  
 if 'user_input' not in st.session_state:  
     st.session_state.user_input = ''  
 if 'messages' not in st.session_state:  
     st.session_state.messages = []  
- 
-# 后端SEARCH API的URL  
-BACKEND_URL_ADD = "http://127.0.0.1:8000/add/" 
  
 def on_button_click(original_question):  
     
@@ -28,11 +26,9 @@ def on_button_click(original_question):
 def clear_messages():  
     # 清空聊天记录  
     st.session_state.messages = []  
-      
+
+# 界面最上面标题       
 st.title("智能问答系统")  
-  
-# 后端SEARCH API的URL  
-BACKEND_URL_SEARCH = "http://127.0.0.1:8000/search/"  
   
 # 创建一个聊天输入框  
 user_input = st.chat_input("请输入你的问题：")  
@@ -74,20 +70,6 @@ for j, message in enumerate(st.session_state.messages):
         with st.expander("{}".format(result["results"][i]["page_content"])):
             st.write("{}".format( result["results"][i]["metadata"]["回答"]))
             
-            
-    # 插入CSS样式  
-    button_style = """  
-    <style>  
-        div.stButton > button:first-child {  
-            background-color: #4CAF50; /* 按钮背景色 */  
-            color: white; /* 字体色 */  
-            border: none; /* 移除边框 */  
-        }  
-        div.stButton > button:first-child:hover {  
-            background-color: #45a049; /* 鼠标悬停时的背景色 */  
-        }  
-    </style>  
-    """  
     st.markdown(button_style, unsafe_allow_html=True)  
     
     # 添加按钮  
