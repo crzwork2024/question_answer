@@ -1,6 +1,4 @@
-from langchain_community.embeddings import ModelScopeEmbeddings  
-from langchain.vectorstores import Chroma  
-import pandas as pd
+from langchain_community.embeddings import ModelScopeEmbeddings 
 
 from utilities import *
 from config import *

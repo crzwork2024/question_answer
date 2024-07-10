@@ -43,4 +43,5 @@ tmp/
 *.~  
 *~
 
+# 忽略PYTHON相关文件
 __pycache__*

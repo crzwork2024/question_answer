@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel  
 from langchain.vectorstores import Chroma  
 from langchain_community.embeddings import ModelScopeEmbeddings 
-from langchain_core.vectorstores import VectorStoreRetriever
+
 from utilities import *
 from config import *
 

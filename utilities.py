@@ -1,4 +1,3 @@
-
 from langchain.vectorstores import Chroma  
 import pandas as pd
 
