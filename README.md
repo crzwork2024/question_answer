@@ -14,25 +14,25 @@
 ```bash
     pip install -r requirements.txt
 ```
-3. **运行storedata脚本**：
+3. **运行storedata脚本**：<br>
 此脚本负责将示例数据保存到向量数据库中。
 ```bash
     python storedata.py
 ```
 
-4. **启动后端服务器**：
+4. **启动后端服务器**：<br>
 使用Uvicorn来运行后端。
 ```bash
     uvicorn backend:app --reload
 ```
 
-5. **运行前端界面**：
+5. **运行前端界面**：<br>
 通过Streamlit来启动前端。
 ```bash
     streamlit run frontend.py
 ```
 
-**文件与目录结构**
+**文件与目录结构**:<br>
 utilities：存放项目中使用的实用函数; <br>
 config：包含项目的所有配置文件; <br>
 frontend：包含Streamlit的前端代码; <br>
