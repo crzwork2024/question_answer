@@ -44,7 +44,6 @@ if user_input != st.session_state.user_input:
         if response.status_code == 200:  
             # 显示后端返回的结果  
             result = response.json()  
-            #st.write('###################{}'.format(result))
             original_question = user_input  
             reference_question = result["results"][0]["page_content"]  
             reference_answer = result["results"][0]["metadata"]["回答"]  

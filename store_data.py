@@ -3,6 +3,7 @@ from utilities import *
 from config import *
 
     
+# 使用指定的模型名称（model_id）创建一个CustomEmbeddings类的实例，并将其赋值给变量embeddings  
 embeddings = CustomEmbeddings(model_name=model_id)
 
 # 加载CSV数据

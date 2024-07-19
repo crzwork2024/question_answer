@@ -1,11 +1,16 @@
-from fastapi import FastAPI, HTTPException  
-from pydantic import BaseModel  
-from langchain.vectorstores import Chroma  
-
-
-from utilities import *
+# 从fastapi包中导入FastAPI类和HTTPException异常类  
+from fastapi import FastAPI, HTTPException    
+# 从pydantic包中导入BaseModel基类，用于数据验证  
+from pydantic import BaseModel    
+# 从langchain.vectorstores包中导入Chroma类，可能用于向量存储或检索  
+from langchain.vectorstores import Chroma    
+# 从utilities模块中导入所有内容，这可能包含一些实用函数或类  
+from utilities import *  
+# 从config模块中导入所有内容，这可能包含配置信息或设置  
 from config import *
 
+
+# 创建了一个 FastAPI 应用实例
 app = FastAPI()  
   
 # 定义请求体  

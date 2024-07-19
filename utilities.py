@@ -29,9 +29,9 @@ def load_data():
         Answers_list = df['Answers'].tolist()
         return Questions_list, Answers_list
     
-    
+# 定义一个名为delete_db的函数，删除数据库内容      
 def delete_db(persist_directory, collection_name):
-# 删除数据库内容 （真实环境中可以删除这段代码）
+# 删除数据库内容 
     vectorstore =  Chroma(persist_directory=persist_directory, collection_name = collection_name)
     doc_ids = vectorstore.get()["ids"]
     if len(doc_ids)>0:

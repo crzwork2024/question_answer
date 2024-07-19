@@ -1,6 +1,6 @@
 # 问题回答系统  
   
-这是一个利用Python、Streamlit、Sentence-transformers、Langchain以及Chroma Database共同构建的问题回答系统。
+这是一个利用Python、Streamlit、SentenceTransformer、Langchain以及Chroma Database共同构建的问题回答系统。
   
 ## 设置步骤  
   
@@ -47,8 +47,6 @@ backend.py：包含后端代码，其中包含一个Flask应用; <br>
 storedata.py：一个用于将示例数据保存到向量数据库中的脚本; <br>
 requirements.txt: 列出所以需要安装的包; <br>
 .gitignore： 用于指定在版本控制系统Git中应该被忽略的文件和目录。 <br>
-
-
 
 
 **使用方法**:<br>
