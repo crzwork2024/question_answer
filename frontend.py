@@ -61,8 +61,6 @@ if st.sidebar.button('查询暂未回答的问题', key='filter_messages_button'
     st.session_state.mode = 'filter'  
     fetch_unanswered_questions()  
   
-
-  
 # 根据条件显示不同的UI元素  
 if st.session_state.mode == 'chat' and st.session_state.show_chat_input:  
     # 聊天模式的代码（这里仅展示框架，具体内容保持不变）  
@@ -107,8 +105,11 @@ if st.session_state.mode == 'filter':
   
     # 显示selectbox让用户选择一个问题  
     if 'df' in st.session_state and not st.session_state.df.empty:  
-        selected_column = st.sidebar.selectbox('选取一个问题来回答', st.session_state.df['documents'])  
-        if selected_column:  
+       # st.write(type(st.session_state.df['documents']))
+        l_temp = st.session_state.df['documents'].tolist()
+        l_temp.insert(0, "Select")  
+        selected_column = st.sidebar.selectbox('选取一个问题来回答', l_temp)  
+        if selected_column in st.session_state.df['documents'].tolist() :  
             st.session_state.selected_column = selected_column  
             st.write("暂未回答问题：", st.session_state.selected_column)  
   
