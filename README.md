@@ -45,8 +45,8 @@ config.py：包含项目的所有配置文件; <br>
 frontend.py：包含Streamlit的前端代码; <br>
 backend.py：包含后端代码，其中包含一个Flask应用; <br>
 storedata.py：一个用于将示例数据保存到向量数据库中的脚本; <br>
-requirements.txt: 需要安装的包; <br>
-.gitignore： 用于指定在版本控制系统（如 Git）中应该被忽略的文件和目录。 <br>
+requirements.txt: 列出所以需要安装的包; <br>
+.gitignore： 用于指定在版本控制系统Git中应该被忽略的文件和目录。 <br>
 
 
 
