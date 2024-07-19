@@ -66,7 +66,7 @@ class CustomEmbeddings(Embeddings):
 def on_button_click(original_question):  
     
     response = requests.post(BACKEND_URL_ADD, json={"query":original_question})  
-    #st.write(response.json())
+    
     if response.status_code == 200: 
        
         # 拆分消息，并只对original_question部分应用颜色  

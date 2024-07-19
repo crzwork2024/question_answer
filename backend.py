@@ -40,6 +40,33 @@ async def add_item(item: Item):
     # 存储数据到向量数据库  
     Answers_list_dict = [{'回答':"暂无回答"}]
     vectorstore = index_texts([item.query], embeddings, persist_directory, collection_name, Answers_list_dict)
+    
+@app.post("/filter/")  
+async def filter():  
+    
+    # 筛选暂未回答的问题
+    results = vectorstore.get(where={'回答':"暂无回答"})
+    
+    df = pd.DataFrame({  
+    'ids': results['ids'],  
+    'documents': results['documents'],  
+    'metadatas': results['metadatas']})  
+    
+    return df, results
+
+@app.post("/update/")  
+async def update(d: dict):  
+    from langchain_core.documents import Document
+
+
+    doc = Document(
+    page_content=d["page_content"],
+    metadata=d["answer"]
+    )
+  
+    id = d["id"]
+    
+    vectorstore.update_document(id, doc)
         
 # 运行 FastAPI 应用   uvicorn backend:app --reload
 if __name__ == "__main__":  

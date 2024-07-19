@@ -26,6 +26,12 @@ BACKEND_URL_ADD = "http://127.0.0.1:8000/add/"
 # 后端SEARCH API的URL  
 BACKEND_URL_SEARCH = "http://127.0.0.1:8000/search/" 
 
+# 后端FILTER API的URL  
+BACKEND_URL_FILTER = "http://127.0.0.1:8000/filter/" 
+
+# 后端UPDATE API的URL  
+BACKEND_URL_UPDATE = "http://127.0.0.1:8000/update/" 
+
 # 插入CSS样式  
 button_style = """  
 <style>  
