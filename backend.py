@@ -49,10 +49,9 @@ async def filter():
     
     df = pd.DataFrame({  
     'ids': results['ids'],  
-    'documents': results['documents'],  
-    'metadatas': results['metadatas']})  
+    'documents': results['documents']})  
     
-    return df, results
+    return df
 
 @app.post("/update/")  
 async def update(d: dict):  
