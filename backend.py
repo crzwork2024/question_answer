@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException  
 from pydantic import BaseModel  
 from langchain.vectorstores import Chroma  
-from langchain_community.embeddings import ModelScopeEmbeddings 
+
 
 from utilities import *
 from config import *
@@ -13,7 +13,7 @@ class Item(BaseModel):
     query: str  
  
 # 加载预训练的文本嵌入模型  
-embeddings = ModelScopeEmbeddings(model_id=model_id)  
+embeddings = CustomEmbeddings(model_name=model_id)
   
 # 加载向量数据库  
 

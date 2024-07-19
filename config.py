@@ -1,7 +1,8 @@
 
-#初始化Chroma向量数据库  
+# 初始化Chroma向量数据库  
 persist_directory = r"C:\Users\RONGZHEN CHEN\Desktop\Projects\data\vectordatabase"  
-collection_name = 'test' 
+# 集合（Collection）可以看作是一组文档的集合，类似数据库中的表
+collection_name = 'test1' 
 
 # 模型文件夹路径
 model_id = r"C:\Users\RONGZHEN CHEN\Desktop\Projects\models\acge_text_embedding"  
@@ -26,3 +27,4 @@ button_style = """
     }  
 </style>  
 """  
+

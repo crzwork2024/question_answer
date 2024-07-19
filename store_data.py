@@ -1,10 +1,9 @@
-from langchain_community.embeddings import ModelScopeEmbeddings 
 
 from utilities import *
 from config import *
 
-# 加载预训练的文本嵌入模型  
-embeddings = ModelScopeEmbeddings(model_id=model_id)  
+    
+embeddings = CustomEmbeddings(model_name=model_id)
 
 # 加载CSV数据
 Questions_list, Answers_list = load_data()     
