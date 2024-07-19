@@ -1,6 +1,6 @@
 # 问题回答系统  
   
-这是一个利用Python、Streamlit、sentence-transformers、langchain以及Chroma Database共同构建的问题回答系统。
+这是一个利用Python、Streamlit、Sentence-transformers、Langchain以及Chroma Database共同构建的问题回答系统。
   
 ## 设置步骤  
   
