@@ -7,12 +7,20 @@ collection_name = 'test1'
 # 模型文件夹路径
 model_id = r"C:\Users\RONGZHEN CHEN\Desktop\Projects\models\acge_text_embedding"  
 
+# 返回与查询最相关的前k个结果
+VECTORSTORE_MAX_K = 4
+
+# 设置Uvicorn的主机地址
+UVICORN_HOST = "127.0.0.1"
+
+# 设置Uvicorn的主机端口
+UVICORN_HOST_PORT = 8000
+
 # 后端SEARCH API的URL  
 BACKEND_URL_ADD = "http://127.0.0.1:8000/add/" 
 
 # 后端SEARCH API的URL  
 BACKEND_URL_SEARCH = "http://127.0.0.1:8000/search/" 
-
 
 # 插入CSS样式  
 button_style = """  

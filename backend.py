@@ -21,7 +21,7 @@ vectorstore = Chroma(persist_directory=persist_directory, collection_name=collec
   
 @app.post("/search/")  
 async def search(item: Item):  
-    retriever = vectorstore.as_retriever(search_kwargs={"k": 4})  
+    retriever = vectorstore.as_retriever(search_kwargs={"k": VECTORSTORE_MAX_K})  
     results = retriever.get_relevant_documents(item.query)  
   
     if not results:  
@@ -39,4 +39,4 @@ async def add_item(item: Item):
 # 运行 FastAPI 应用   uvicorn backend:app --reload
 if __name__ == "__main__":  
     import uvicorn  
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    uvicorn.run(app, host=UVICORN_HOST, port=UVICORN_HOST_PORT)
