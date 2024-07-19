@@ -1,32 +1,21 @@
-import streamlit as st  
-import requests  
+# 导入streamlit库，并将其简称为st，用于创建和分享数据应用  
+import streamlit as st    
+# 导入requests库，用于发送HTTP请求  
+import requests    
+# 从config模块中导入所有内容，这可能包含配置信息或设置  
 from config import *
-  
+# 从utilities模块中导入所有内容，这可能包含一些实用函数或类  
+from utilities import *  
+
 # 初始化 session_state  
 if 'user_input' not in st.session_state:  
     st.session_state.user_input = ''  
 if 'messages' not in st.session_state:  
     st.session_state.messages = []  
- 
-def on_button_click(original_question):  
-    
-    response = requests.post(BACKEND_URL_ADD, json={"query":original_question})  
-    #st.write(response.json())
-    if response.status_code == 200: 
-       
-        # 拆分消息，并只对original_question部分应用颜色  
-        message_part1 = "问题"  
-        message_part2 = f'已成功添加至数据库，随后我们将邀请专家前来解答！'  
-        colored_question = f'<span style="color: green;">{original_question}</span>'  
-        
-        # 组合消息并显示  
-        full_message = f'{message_part1} {colored_question}{message_part2}'  
-        st.markdown(full_message, unsafe_allow_html=True)
-    
-def clear_messages():  
-    # 清空聊天记录  
-    st.session_state.messages = []  
 
+# 设置Streamlit页面的配置，包括标题  
+st.set_page_config(page_title="智能问答系统", page_icon="🚀")  
+ 
 # 界面最上面标题       
 st.title("智能问答系统")  
   

@@ -1,3 +1,4 @@
+# 程序配置信息
 
 # 初始化Chroma向量数据库  
 persist_directory = r"C:\Users\RONGZHEN CHEN\Desktop\Projects\data\vectordatabase"  
@@ -7,6 +8,9 @@ collection_name = 'test1'
 # 模型文件夹路径
 model_id = r"C:\Users\RONGZHEN CHEN\Desktop\Projects\models\acge_text_embedding"  
 
+# 原始数据路径
+raw_data_path = r'C:\Users\RONGZHEN CHEN\Desktop\Projects\data\sample_data.txt'
+        
 # 返回与查询最相关的前k个结果
 VECTORSTORE_MAX_K = 4
 

@@ -1,20 +1,27 @@
-from typing import List
+# 从typing模块中导入List类型，用于类型注解  
+from typing import List  
+# 从langchain.vectorstores包中导入Chroma类，用于向量存储或检索  
 from langchain.vectorstores import Chroma  
-import pandas as pd
-from sentence_transformers import SentenceTransformer
+# 导入pandas库，并简称为pd，用于数据处理和分析  
+import pandas as pd  
+# 从sentence_transformers库导入SentenceTransformer类，用于文本嵌入  
+from sentence_transformers import SentenceTransformer  
+# 从langchain.embeddings.base模块导入Embeddings基类，用于定义嵌入相关的功能  
 from langchain.embeddings.base import Embeddings
-
+# 导入streamlit库，并将其简称为st，用于创建和分享数据应用  
+import streamlit as st    
+# 导入requests库，用于发送HTTP请求  
+import requests    
+# 从config模块中导入所有内容，这可能包含配置信息或设置   
+from config import *
 
 # 将数据库中的文本转换为向量并存储到向量数据库中  
 def index_texts(texts, embeddings, persist_directory, collection_name, metadata):  
     vectorstore = Chroma.from_texts(texts=texts, embedding=embeddings, persist_directory=persist_directory, collection_name=collection_name, metadatas=metadata)  
     return vectorstore  
 
-
-def load_data():
-        
-        #假设你的txt文件名为'data.txt'  
-        file_path = r'C:\Users\RONGZHEN CHEN\Desktop\Projects\data\sample_data.txt'
+# 导入原始数据
+def load_data(file_path):
         
         #使用pandas的read_csv函数读取文件，设置sep为'?'  
         df = pd.read_csv(file_path, sep='？，')  # header=None 假设文件没有标题行  
@@ -56,4 +63,21 @@ class CustomEmbeddings(Embeddings):
         return self.model.encode([query])[0].tolist()
         
 
+def on_button_click(original_question):  
     
+    response = requests.post(BACKEND_URL_ADD, json={"query":original_question})  
+    #st.write(response.json())
+    if response.status_code == 200: 
+       
+        # 拆分消息，并只对original_question部分应用颜色  
+        message_part1 = "问题"  
+        message_part2 = f'已成功添加至数据库，随后我们将邀请专家前来解答！'  
+        colored_question = f'<span style="color: green;">{original_question}</span>'  
+        
+        # 组合消息并显示  
+        full_message = f'{message_part1} {colored_question}{message_part2}'  
+        st.markdown(full_message, unsafe_allow_html=True)
+    
+def clear_messages():  
+    # 清空聊天记录  
+    st.session_state.messages = []  
